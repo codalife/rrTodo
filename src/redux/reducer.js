@@ -2,9 +2,10 @@
 const initialStore = {
     newTask: "",
     tasks: [
-        {name: "be happy", active: true},
-        {name: "don't worry", active: true},
-    ]
+        {name: "be happy", complete: false},
+        {name: "don't worry", complete: false},
+    ],
+    show: "active",
 }
 
 const reducer = (store = initialStore, action) => {
@@ -22,8 +23,25 @@ const reducer = (store = initialStore, action) => {
             return {
                 ...store,
                 newTask: emptyTask,
-                tasks: [...store.tasks, {name: store.newTask}],
-            }            
+                tasks: [...store.tasks, {name: store.newTask, complete: false}],
+            }
+        case "toggle":
+            const tasks = store.tasks.slice();
+            tasks.forEach(task => {
+                if (task.name === action.payload) {
+                    task.complete = !task.complete;
+                }
+            })
+            return {
+                ...store,
+                tasks: tasks
+            }
+        case "filter":
+            const newShow = action.payload;
+            return {
+                ...store,
+                show: newShow
+            }
         default:
             return store;
     }
