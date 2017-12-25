@@ -5,6 +5,7 @@ import { createTask, setTask } from "../redux/actions";
 
 const CreateTask = props => (
     <form onSubmit={props.setNewTask}>
+        <h2>Add new toDo</h2>
         <TextField id="taskCreator" value={props.newTask} onChange={props.addTask}/>
     </form>
 )

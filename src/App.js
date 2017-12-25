@@ -7,6 +7,7 @@ import reducer from './redux/reducer';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TasksList from './components/TasksList';
 import CreateTask from './components/CreateTask';
+import Tabs from "./components/Tabs";
 
 const store = createStore(reducer);
 
@@ -20,6 +21,7 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Welcome to React</h1>
             </header>
+            <Tabs/>
             <CreateTask />
             <TasksList />
           </div>

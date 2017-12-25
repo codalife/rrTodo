@@ -1,15 +1,19 @@
 import React from "react";
-import { List, ListItem } from "material-ui";
+import { Table, TableBody, TableRow, TableRowColumn } from "material-ui";
 import { connect } from "react-redux";
 
 const TasksList = props => (
-    <List >
-        {props.tasks.map((task, index) => (
-            <ListItem primaryText={task.name} key={index} >
-
-            </ListItem>)
-        )}
-    </List>
+    <Table >
+        <TableBody>
+            {props.tasks.map((task, index) => (
+                <TableRow selected={task.active} key={index} >
+                    <TableRowColumn>
+                        {task.name}
+                    </TableRowColumn>
+                </TableRow>)
+            )}
+        </TableBody>
+    </Table>
 )
 
 const mapStateToProps = state => ({tasks: state.tasks});

@@ -2,8 +2,8 @@
 const initialStore = {
     newTask: "",
     tasks: [
-        {name: "be happy"},
-        {name: "don't worry"},
+        {name: "be happy", active: true},
+        {name: "don't worry", active: true},
     ]
 }
 
